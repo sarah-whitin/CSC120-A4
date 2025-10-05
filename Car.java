@@ -49,6 +49,7 @@ public class Car {
             this.PassengerList.remove(p);
         }else{
             passengers = false;
+            System.out.println("Passenger not on car");
         }
         return passengers;
       }
