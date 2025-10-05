@@ -6,6 +6,11 @@ public class Passenger {
         this.name = name;
     }
 
+    public String getName(){
+        String name = this.name;
+        return name;
+    }
+
     private void boardCar(Car c){
         boolean seatAvailable = c.addPassanger(this);
         if (seatAvailable = true){

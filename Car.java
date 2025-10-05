@@ -7,16 +7,16 @@ public class Car {
     /**
      * Constructor
      */
-    Car(ArrayList<Passenger> p, int m){
-        this.PassengerList = p;
+    Car(int m){
         this.MaxCapacity = m;
+        this.PassengerList = new ArrayList<>(m);
     }
 
     /**
      * gets capacity
      */
     private int getCapacity(){
-        int capacity = this.PassengerList.size();
+        int capacity = this.MaxCapacity;
         return capacity;
     }
 
@@ -24,7 +24,7 @@ public class Car {
       * gets seat remaining
       */
       private int seatsRemaining(){
-        int amntPassanger = getCapacity();
+        int amntPassanger = this.PassengerList.size();
         int seatsRemaining = this.MaxCapacity - amntPassanger;
         return seatsRemaining;
       }
@@ -43,10 +43,10 @@ public class Car {
 
       public Boolean removePassanger(Passenger p){
         boolean passengers;
-        int seatsRemaining = seatsRemaining();
-        if(seatsRemaining > 0){
+        boolean aboard = PassengerList.contains(p);
+        if(aboard == true){
             passengers = true;
-            this.PassengerList.add(p);
+            this.PassengerList.remove(p);
         }else{
             passengers = false;
         }
@@ -54,11 +54,43 @@ public class Car {
       }
 
       public void printManifest(){
-        int amntPassenger = getCapacity();
+        int amntPassenger = this.PassengerList.size();
+        ArrayList<String> passengerlist = new ArrayList<>();
         if(amntPassenger > 0){
-            System.out.println(PassengerList);
+            for(int i=0; i < this.PassengerList.size(); i++){
+                Passenger passenger = this.PassengerList.get(i);
+                String name = passenger.getName();
+                passengerlist.add(name);
+            }
+            System.out.println(passengerlist);
         }else{
             System.out.println("This car is EMPTY");
         }
+      }
+
+      public static void main(String[] args){
+            Car car = new Car(1);
+
+            int capacity = car.getCapacity();
+            System.out.println(capacity);
+
+            int seatsremaing = car.seatsRemaining();
+            System.out.println(seatsremaing);
+
+            Passenger sarah = new Passenger("Sarah");
+            Passenger anna = new Passenger("Anna");
+
+            car.addPassanger(sarah);
+         //   Boolean add = car.addPassanger(anna);
+         //   System.out.println(add);
+            System.out.println(car.PassengerList);
+
+            Boolean remove = car.removePassanger(anna);
+            System.out.println(remove);
+            // System.out.println(car.PassengerList);
+
+            car.printManifest();
+
+
       }
 }
