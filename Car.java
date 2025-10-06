@@ -23,7 +23,7 @@ public class Car {
      /**
       * gets seat remaining
       */
-      private int seatsRemaining(){
+      public int seatsRemaining(){
         int amntPassanger = this.PassengerList.size();
         int seatsRemaining = this.MaxCapacity - amntPassanger;
         return seatsRemaining;
@@ -70,7 +70,7 @@ public class Car {
       }
 
       public static void main(String[] args){
-            Car car = new Car(1);
+            Car car = new Car(10);
 
             int capacity = car.getCapacity();
             System.out.println(capacity);
@@ -89,6 +89,9 @@ public class Car {
             Boolean remove = car.removePassanger(anna);
             System.out.println(remove);
             // System.out.println(car.PassengerList);
+
+            seatsremaing = car.seatsRemaining();
+            System.out.println(seatsremaing);
 
             car.printManifest();
 
