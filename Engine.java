@@ -58,7 +58,7 @@ public class Engine {
     }; 
 
     /**
-     * @return
+     * puts current fuellevel up to max fuel level
      */
     public void refuel(){
         this.fuellevel = getMaxFuel();
@@ -83,8 +83,6 @@ public class Engine {
     };
 
     
-    // Constructor
-
     public static void main(String[] args) {
         Engine myEngine = new Engine(FuelType.ELECTRIC, 0.0, 100.0);
         while (myEngine.go()) {

@@ -29,7 +29,10 @@ public class Car {
         return seatsRemaining;
       }
 
-      public Boolean addPassanger(Passenger p){
+    /**
+     * places passenger & returns true in car if seat available, false if not
+     */      
+        public Boolean addPassanger(Passenger p){
         boolean seatAvailable;
         int seatsRemaining = seatsRemaining();
         if(seatsRemaining > 0){
@@ -40,7 +43,10 @@ public class Car {
         }
         return seatAvailable;
       }
-
+      
+      /**
+       * removes passenger & returns true if passenger was on car, false if not
+       */
       public Boolean removePassanger(Passenger p){
         boolean passengers;
         boolean aboard = PassengerList.contains(p);
@@ -54,6 +60,9 @@ public class Car {
         return passengers;
       }
 
+      /**
+       * prints manifest of passengers on car
+       */
       public void printManifest(){
         int amntPassenger = this.PassengerList.size();
         ArrayList<String> passengerlist = new ArrayList<>();
