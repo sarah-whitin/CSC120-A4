@@ -1,4 +1,4 @@
-public class Passenger {
+public class Passenger implements PassengerRequirements{
     
     private String name;
 
@@ -20,8 +20,8 @@ public class Passenger {
     /**
      * Passenger boards car if there is a seat available, otherwise prints no seats available
      */
-    private void boardCar(Car c){
-        boolean seatAvailable = c.addPassanger(this);
+    public void boardCar(Car c){
+        boolean seatAvailable = c.addPassenger(this);
         if (seatAvailable == true){
             System.out.println(name+" boarded car");
         }else{
@@ -32,8 +32,8 @@ public class Passenger {
     /**
      * Passenger gets off car if they are in the car, otherwise prints not in car
      */
-    private void getOffCar(Car c){
-        boolean passengers = c.removePassanger(this);
+    public void getOffCar(Car c){
+        boolean passengers = c.removePassenger(this);
         if(passengers == true){
             System.out.println(this.name+" got off car");
         }

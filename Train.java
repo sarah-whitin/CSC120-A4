@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Train {
+public class Train implements TrainRequirements {
     Engine engine;
     ArrayList<Car> cars;
     int totalMaxCap;   
@@ -69,7 +69,7 @@ public class Train {
     /**
      *  prints a roster of all `Passenger`s onboard 
      */
-    private void printManifest(){
+    public void printManifest(){
         for (int i = 0; i < this.cars.size(); i++){
             Car car = this.getCar(i);
             car.printManifest();
@@ -98,18 +98,18 @@ public class Train {
 
         System.out.println(train.cars);
         Car car1 = train.getCar(0);
-        car1.addPassanger(p1);
-        car1.addPassanger(p2);
-        car1.addPassanger(p3);
+        car1.addPassenger(p1);
+        car1.addPassenger(p2);
+        car1.addPassenger(p3);
         Car car2 = train.getCar(1);
-        car2.addPassanger(p4);
-        car2.addPassanger(p5);
+        car2.addPassenger(p4);
+        car2.addPassenger(p5);
         Car car3 = train.getCar(2);
-        car3.addPassanger(p6);
-        car3.addPassanger(p7);
-        car3.addPassanger(p8);
-        car3.addPassanger(p9);
-        car3.addPassanger(p10);
+        car3.addPassenger(p6);
+        car3.addPassenger(p7);
+        car3.addPassenger(p8);
+        car3.addPassenger(p9);
+        car3.addPassenger(p10);
 
         train.printManifest();
     
