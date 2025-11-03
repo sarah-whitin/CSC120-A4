@@ -6,6 +6,7 @@ public class Car implements CarRequirements {
     
     /**
      * Constructor
+     * @param m Car's max capacity
      */
     Car(int m){
         this.MaxCapacity = m;
@@ -13,24 +14,28 @@ public class Car implements CarRequirements {
     }
 
     /**
-     * gets capacity
+     * gets max capacity 
+     * @return Car's max capacity 
      */
     public int getCapacity(){
         int capacity = this.MaxCapacity;
         return capacity;
     }
 
-     /**
-      * gets seat remaining
-      */
+    /**
+     * gets seat remaining
+     * @return Seats remaining in the car
+     */
     public int seatsRemaining(){
         int amntPassanger = this.PassengerList.size();
         int seatsRemaining = this.MaxCapacity - amntPassanger;
         return seatsRemaining;
-      }
+    }
 
     /**
-     * places passenger & returns true in car if seat available, false if not
+     * Adds passenger to the ArrayList of those on the car if there are seats available. 
+     * @param p Passenger to get on the car.
+     * @return `True` if the passenger was successfully added, and `False` otherwise.
      */      
     public Boolean addPassenger(Passenger p){
         boolean seatAvailable;
@@ -44,10 +49,12 @@ public class Car implements CarRequirements {
         return seatAvailable;
     }
       
-      /**
-       * removes passenger & returns true if passenger was on car, false if not
-       */
-      public Boolean removePassenger(Passenger p){
+    /**
+     * Removes passenger to the ArrayList of those on the car if they were on the car.
+     * @param p Passenger to be removed from car.
+     * @return `True` if the passenger was successfully removed, and `False` otherwise.
+     */
+    public Boolean removePassenger(Passenger p){
         boolean passengers;
         boolean aboard = PassengerList.contains(p);
         if(aboard == true){
@@ -58,12 +65,12 @@ public class Car implements CarRequirements {
             System.out.println("Passenger not on car");
         }
         return passengers;
-      }
+    }
 
-      /**
-       * prints manifest of passengers on car
-       */
-      public void printManifest(){
+    /**
+     * prints out a list of all `Passenger`s aboard the car (or "This car is EMPTY." if there is no one on board)
+     */
+    public void printManifest(){
         int amntPassenger = this.PassengerList.size();
         ArrayList<String> passengerlist = new ArrayList<>();
         if(amntPassenger > 0){
@@ -76,34 +83,32 @@ public class Car implements CarRequirements {
         }else{
             System.out.println("This car is EMPTY");
         }
-      }
+    }
 
-      public static void main(String[] args){
-            Car car = new Car(10);
+    public static void main(String[] args){
+        Car car = new Car(10);
 
-            int capacity = car.getCapacity();
-            System.out.println(capacity);
+        int capacity = car.getCapacity();
+        System.out.println(capacity);
 
-            int seatsremaing = car.seatsRemaining();
-            System.out.println(seatsremaing);
+        int seatsremaing = car.seatsRemaining();
+        System.out.println(seatsremaing);
 
-            Passenger sarah = new Passenger("Sarah");
-            Passenger anna = new Passenger("Anna");
+        Passenger sarah = new Passenger("Sarah");
+        Passenger anna = new Passenger("Anna");
 
-            car.addPassenger(sarah);
-         //   Boolean add = car.addPassanger(anna);
-         //   System.out.println(add);
-            System.out.println(car.PassengerList);
+        car.addPassenger(sarah);
+        //   Boolean add = car.addPassanger(anna);
+        //   System.out.println(add);
+        System.out.println(car.PassengerList);
 
-            Boolean remove = car.removePassenger(anna);
-            System.out.println(remove);
-            // System.out.println(car.PassengerList);
+        Boolean remove = car.removePassenger(anna);
+        System.out.println(remove);
+        // System.out.println(car.PassengerList);
 
-            seatsremaing = car.seatsRemaining();
-            System.out.println(seatsremaing);
+        seatsremaing = car.seatsRemaining();
+        System.out.println(seatsremaing);
 
-            car.printManifest();
-
-
-      }
+        car.printManifest();
+    }
 }

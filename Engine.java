@@ -1,94 +1,68 @@
 public class Engine {
-    // Attibutes
-    FuelType fueltype;
-    double fuellevel;
-    double maxfuellevel;
-
+    FuelType fuelType;
+    double fuelLevel;
+    double maxFuelLevel;
 
     /**
-    * Constructor 
+    * Constructor: Fuellevel will default to the max level at instintiation
+    * @param f Fueltype for the engine
+    * @param fuelevel Current fuel level for the engine
+    * @param maxlevel Current max level for the engine
     */
-    Engine(FuelType f, double level, double maxlevel){
-        this.fueltype = f;
-        this.fuellevel = level;
-        this.maxfuellevel = maxlevel;
+    Engine(FuelType f, double fuellevel, double maxlevel){
+        this.fuelType = f;
+        this.fuelLevel = fuellevel;
+        this.maxFuelLevel = maxlevel;
     }
-
-    // Methods
-
-    /**
-     * prints & returns fuel type
-     */
-    private FuelType getFuelType(){
-        FuelType fueltype = this.fueltype;
-        System.out.println("Current FuelType: "+fueltype);
-        return fueltype;
-    }; 
     
     /**
-     * prints & returns max fuel level
+     * gets max fuel level
+     * @return engine's max fuel level
      */
     private double getMaxFuel(){
-        FuelType fueltype = getFuelType();
-        if (fueltype == FuelType.STEAM){
-            this.maxfuellevel = 60;
-            System.out.println("Max FuelLevel: "+fuellevel);
-            return maxfuellevel;
-        }if(fueltype == FuelType.INTERNAL_COMBUSTION){
-            this. maxfuellevel = 100;
-            System.out.println("Max FuelLevel: "+fuellevel);
-            return maxfuellevel;
-        }if(fueltype == FuelType.ELECTRIC){
-            this. maxfuellevel = 85;
-            System.out.println("Max FuelLevel: "+fuellevel);
-            return maxfuellevel;
-        }else{
-            this.maxfuellevel = 75;
-            System.out.println("Max FuelLevel: "+fuellevel);
-            return maxfuellevel;
-        }
-    };
+        double max = this.maxFuelLevel;
+        return max;
+    }
 
     /**
      * gets and prints current fuel level
      */
     private double getCurrentFuel(){
-        double fuellevel = this.fuellevel;
+        double fuellevel = this.fuelLevel;
         return fuellevel;
-    }; 
+    } 
 
     /**
      * puts current fuellevel up to max fuel level
      */
     public void refuel(){
-        this.fuellevel = getMaxFuel();
-        System.out.println("Refuled. Fuel Level: "+this.fuellevel);
-    }; 
+        this.fuelLevel = getMaxFuel();
+        System.out.println("Refueled. Fuel Level: "+this.fuelLevel);
+    } 
 
     /**
      * decrease the current fuel level, print some useful information (e.g. remaining fuel level), and return `True` if the fuel level is above 0 and `False` otherwise.
      */
     public Boolean go(){
-        double fuelevel = getCurrentFuel();
-        this.fuellevel = fuelevel - 1;
-        System.out.println("Fuel Level: "+this.fuellevel);
-        if (this.fuellevel > 0){
-            Boolean fuelstatsus = true;
-            return fuelstatsus;
+        double fuelLevel = getCurrentFuel();
+        this.fuelLevel = fuelLevel - 0.0001;
+        System.out.println("Fuel Level: "+this.fuelLevel);
+        if (this.fuelLevel > 0.0){
+            Boolean fuelStatsus = true;
+            return fuelStatsus;
         }
         else {
-            Boolean fuelstatsus = false;
-            return fuelstatsus;
+            Boolean fuelStatsus = false;
+            return fuelStatsus;
         }
-    };
+    }
 
     
     public static void main(String[] args) {
-        Engine myEngine = new Engine(FuelType.ELECTRIC, 0.0, 100.0);
+        Engine myEngine = new Engine(FuelType.ELECTRIC, 10.0, 100.0);
         while (myEngine.go()) {
             System.out.println("Choo choo!");
         }
         System.out.println("Out of fuel.");
-      }
-
+    }
 }
