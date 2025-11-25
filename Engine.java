@@ -1,7 +1,7 @@
 public class Engine implements EngineRequirements{
-    FuelType fuelType;
-    double fuelLevel;
-    double maxFuelLevel;
+    private FuelType fuelType;
+    private double fuelLevel;
+    private double maxFuelLevel;
 
     /**
     * Constructor: Fuellevel will default to the max level at instintiation

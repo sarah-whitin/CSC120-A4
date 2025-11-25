@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Car implements CarRequirements {
-    ArrayList<Passenger> PassengerList;
-    int MaxCapacity;
+    private ArrayList<Passenger> PassengerList;
+    private int MaxCapacity;
     
     /**
      * Constructor
