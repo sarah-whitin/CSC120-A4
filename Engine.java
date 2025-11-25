@@ -1,4 +1,4 @@
-public class Engine {
+public class Engine implements EngineRequirements{
     FuelType fuelType;
     double fuelLevel;
     double maxFuelLevel;
@@ -14,12 +14,20 @@ public class Engine {
         this.fuelLevel = fuellevel;
         this.maxFuelLevel = maxlevel;
     }
-    
+
+    /**
+     * Gets fueltype that engine uses
+     * @return FuelType that the engine takes
+     */
+    public FuelType getFuelType(){
+        return this.fuelType;
+    }
+
     /**
      * gets max fuel level
      * @return engine's max fuel level
      */
-    private double getMaxFuel(){
+    public double getMaxFuel(){
         double max = this.maxFuelLevel;
         return max;
     }
@@ -27,7 +35,7 @@ public class Engine {
     /**
      * gets and prints current fuel level
      */
-    private double getCurrentFuel(){
+    public double getCurrentFuel(){
         double fuellevel = this.fuelLevel;
         return fuellevel;
     } 
