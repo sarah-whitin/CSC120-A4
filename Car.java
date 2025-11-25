@@ -41,8 +41,13 @@ public class Car implements CarRequirements {
         boolean seatAvailable;
         int seatsRemaining = seatsRemaining();
         if(seatsRemaining > 0){
-            seatAvailable = true;
-            this.PassengerList.add(p);
+            if(this.PassengerList.contains(p)){
+                seatAvailable = false;
+                System.out.println("Passenger on car already.");
+            }else{
+                this.PassengerList.add(p);
+                seatAvailable = true;
+            }
         }else{
             seatAvailable = false;
         }
@@ -98,17 +103,6 @@ public class Car implements CarRequirements {
         Passenger anna = new Passenger("Anna");
 
         car.addPassenger(sarah);
-        //   Boolean add = car.addPassanger(anna);
-        //   System.out.println(add);
-        System.out.println(car.PassengerList);
-
-        Boolean remove = car.removePassenger(anna);
-        System.out.println(remove);
-        // System.out.println(car.PassengerList);
-
-        seatsremaing = car.seatsRemaining();
-        System.out.println(seatsremaing);
-
-        car.printManifest();
+        car.addPassenger(sarah);
     }
 }
