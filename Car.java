@@ -104,5 +104,6 @@ public class Car implements CarRequirements {
 
         car.addPassenger(sarah);
         car.addPassenger(sarah);
+        car.printManifest();
     }
 }

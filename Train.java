@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
 public class Train implements TrainRequirements {
-    Engine engine;
-    ArrayList<Car> cars;
-    int totalMaxCap;   // idk if need
+    private final Engine engine;
+    private ArrayList<Car> cars;
 
     /**
      * Constructor: builds train by creating an engine & list of cars
@@ -49,7 +48,7 @@ public class Train implements TrainRequirements {
         int totalMaxCap = 0;
         for (int i = 0; i < this.cars.size(); i ++) {
             Car car = this.getCar(i);
-            int maxcapacity = car.MaxCapacity;
+            int maxcapacity = car.getCapacity();
             totalMaxCap = totalMaxCap + maxcapacity;
         }
         return totalMaxCap;
