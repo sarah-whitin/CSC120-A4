@@ -34,6 +34,7 @@ public class Engine implements EngineRequirements{
 
     /**
      * gets and prints current fuel level
+     * @return double, the current fuel level
      */
     public double getCurrentFuel(){
         double fuellevel = this.fuelLevel;
@@ -50,6 +51,7 @@ public class Engine implements EngineRequirements{
 
     /**
      * decrease the current fuel level, print some useful information (e.g. remaining fuel level), and return `True` if the fuel level is above 0 and `False` otherwise.
+     * @return boolean, true if there is gas left and false if there is no gas left
      */
     public Boolean go(){
         double fuelLevel = getCurrentFuel();

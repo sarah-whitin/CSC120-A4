@@ -24,7 +24,7 @@ public class Car implements CarRequirements {
 
     /**
      * gets seat remaining
-     * @return Seats remaining in the car
+     * @return int, seats remaining in the car
      */
     public int seatsRemaining(){
         int amntPassanger = this.passengerList.size();
