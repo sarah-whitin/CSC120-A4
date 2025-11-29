@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
 public class Car implements CarRequirements {
-    private ArrayList<Passenger> PassengerList;
-    private int MaxCapacity;
+    private ArrayList<Passenger> passengerList;
+    private int maxCapacity;
     
     /**
      * Constructor
-     * @param m Car's max capacity
+     * @param m int, Car's max capacity
      */
     Car(int m){
-        this.MaxCapacity = m;
-        this.PassengerList = new ArrayList<>(m);
+        this.maxCapacity = m;
+        this.passengerList = new ArrayList<>(m);
     }
 
     /**
@@ -18,7 +18,7 @@ public class Car implements CarRequirements {
      * @return Car's max capacity 
      */
     public int getCapacity(){
-        int capacity = this.MaxCapacity;
+        int capacity = this.maxCapacity;
         return capacity;
     }
 
@@ -27,8 +27,8 @@ public class Car implements CarRequirements {
      * @return Seats remaining in the car
      */
     public int seatsRemaining(){
-        int amntPassanger = this.PassengerList.size();
-        int seatsRemaining = this.MaxCapacity - amntPassanger;
+        int amntPassanger = this.passengerList.size();
+        int seatsRemaining = this.maxCapacity - amntPassanger;
         return seatsRemaining;
     }
 
@@ -41,11 +41,11 @@ public class Car implements CarRequirements {
         boolean seatAvailable;
         int seatsRemaining = seatsRemaining();
         if(seatsRemaining > 0){
-            if(this.PassengerList.contains(p)){
+            if(this.passengerList.contains(p)){
                 seatAvailable = false;
                 System.out.println("Passenger on car already.");
             }else{
-                this.PassengerList.add(p);
+                this.passengerList.add(p);
                 seatAvailable = true;
             }
         }else{
@@ -61,10 +61,10 @@ public class Car implements CarRequirements {
      */
     public Boolean removePassenger(Passenger p){
         boolean passengers;
-        boolean aboard = PassengerList.contains(p);
+        boolean aboard = passengerList.contains(p);
         if(aboard == true){
             passengers = true;
-            this.PassengerList.remove(p);
+            this.passengerList.remove(p);
         }else{
             passengers = false;
             System.out.println("Passenger not on car");
@@ -76,11 +76,11 @@ public class Car implements CarRequirements {
      * prints out a list of all `Passenger`s aboard the car (or "This car is EMPTY." if there is no one on board)
      */
     public void printManifest(){
-        int amntPassenger = this.PassengerList.size();
+        int amntPassenger = this.passengerList.size();
         ArrayList<String> passengerlist = new ArrayList<>();
         if(amntPassenger > 0){
-            for(int i=0; i < this.PassengerList.size(); i++){
-                Passenger passenger = this.PassengerList.get(i);
+            for(int i=0; i < this.passengerList.size(); i++){
+                Passenger passenger = this.passengerList.get(i);
                 String name = passenger.getName();
                 passengerlist.add(name);
             }
@@ -100,7 +100,7 @@ public class Car implements CarRequirements {
         System.out.println(seatsremaing);
 
         Passenger sarah = new Passenger("Sarah");
-        Passenger anna = new Passenger("Anna");
+       // Passenger anna = new Passenger("Anna");
 
         car.addPassenger(sarah);
         car.addPassenger(sarah);
